@@ -1,0 +1,29 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "%{EMAIL}",
+                "Name": "%{AUTHOR}"
+            }
+        ],
+        "Category": "Online Services",
+        "Dependencies": [
+        ],
+        "Description": "Displays Minecraft Server information",
+        "Description[en_GB]": "Displays Minecraft Server information",
+        "Description[nl]": "Geeft de status van een Minecraftserver weer",
+        "EnabledByDefault": true,
+        "Icon": "minecraft-launcher",
+        "Id": "nl.netsoj.minecraftserverping",
+        "License": "GPL",
+        "Name": "Minecraft Server Status",
+        "Name[en_GB]": "Minecraft Server Status",
+        "Name[nl]": "Minecraftserver status",
+        "ServiceTypes": [
+            "Plasma/Applet"
+        ],
+        "Version": "1.0",
+        "Website": "https://netsoj.nl/"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0"
+}
