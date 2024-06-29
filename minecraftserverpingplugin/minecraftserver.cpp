@@ -266,7 +266,7 @@ void MinecraftServer::parseResponseJSON(QByteArray &response) {
 				}
 			}
 			qDebug() << m_playerNamesSample;
-			emit this->playerNamesSampleChanged();
+			Q_EMIT this->playerNamesSampleChanged();
         }
 	}
 }

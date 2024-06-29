@@ -120,7 +120,7 @@ public:
 	 */
 	QString icon() const { return this->m_icon; }
 
-signals:
+Q_SIGNALS:
 	void nameChanged();
 	void addressChanged(QString newAddress);
 	void portChanged(int newPort);
@@ -133,7 +133,7 @@ signals:
 	void autoPingChanged();
 	void playerNamesSampleChanged();
 	
-public slots:
+public Q_SLOTS:
 	/**
 	 * Attempts to ping the server and updates its data.
 	 * 

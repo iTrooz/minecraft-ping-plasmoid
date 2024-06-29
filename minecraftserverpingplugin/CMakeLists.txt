@@ -16,10 +16,10 @@ add_library(minecraftserverpingplugin SHARED ${minecraftserverping_SRCS})
 
 target_precompile_headers(minecraftserverpingplugin PRIVATE ${minecraftserverping_HEADERS})
 target_link_libraries(minecraftserverpingplugin
-                      KF5::I18n
-                      Qt5::Core
-                      Qt5::Qml
-                      Qt5::Gui)
+                      KF6::I18n
+                      Qt6::Core
+                      Qt6::Qml
+                      Qt6::Gui)
 
 install(TARGETS minecraftserverpingplugin DESTINATION ${KDE_INSTALL_QMLDIR}/nl/netsoj/minecraftserverping)
 install(FILES qmldir DESTINATION ${KDE_INSTALL_QMLDIR}/nl/netsoj/minecraftserverping)
