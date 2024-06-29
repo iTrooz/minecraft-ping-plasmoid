@@ -32,7 +32,7 @@ QHash<int, QByteArray> MinecraftServerPing::ServerListModel::roleNames() const {
 QVariant MinecraftServerPing::ServerListModel::data(const QModelIndex& index, int role) const {
 	switch(role) {
 		case ADDRESS:
-			return &this->servers[index.row()];
+			return QVariant::fromValue(&this->servers[index.row()]);
 		default:
 			return QVariant();
 	}

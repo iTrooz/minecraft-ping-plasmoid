@@ -20,11 +20,11 @@ QString formattingCodeToHTML(QString formattedString) {
 	QString parsedMotd;
 	QStack<EscapeCharType> parseStack;
 	ParseMode parseMode = NORMAL;
-	const QChar escapeChar = L'§';
+	const QChar escapeChar = QChar::fromUcs2(L'§');
 	const QString colorOpenTag = "<font color='%1'>";
 	const QString colorCloseTag = "</font>";
 	
-	foreach (QChar character, formattedString) {
+	for (QChar character : formattedString) {
 		switch(parseMode) {
 			case NORMAL:
 				if (character == escapeChar) {
