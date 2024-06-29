@@ -23,8 +23,7 @@ MinecraftServer::MinecraftServer(QObject *parent) : MinecraftServer("","", 0, pa
 
 MinecraftServer::MinecraftServer(QString name, QString address, int port, QObject *parent)
 	: QObject(parent), m_name(name), m_address(address), m_port(port), m_currentPlayers(-1), m_maxPlayers(-1), socketDatastream(&packetBuffer) {
-	connect(&socket, QOverload<QAbstractSocket::SocketError>::of(&QAbstractSocket::error),
-			this, &MinecraftServer::socketError);
+	connect(&socket, &QAbstractSocket::errorOccurred, this, &MinecraftServer::socketError);
 	connect(&socket, &QAbstractSocket::connected, this, &MinecraftServer::socketConnected);
 	connect(&socket, &QAbstractSocket::readyRead, this, &MinecraftServer::socketReadyRead);
 	packetBuffer.open(QIODevice::ReadWrite);
