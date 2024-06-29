@@ -16,6 +16,7 @@
  */
 import QtQuick
 import org.kde.plasma.components as PlasmaComponents
+import org.kde.kirigami as Kirigami
 
 import nl.netsoj.minecraftserverping
 
@@ -28,7 +29,7 @@ PlasmaComponents.Label {
 	
 	id: serverMotd
 	textFormat: Text.StyledText
-	color: serverState == MinecraftServer.ERROR ? theme.negativeTextColor : theme.textColor
+	color: serverState == MinecraftServer.ERROR ? Kirigami.Theme.negativeTextColor : Kirigami.Theme.textColor
 	wrapMode: Text.Wrap
 	text: switch (serverState) {
 		case MinecraftServer.UNKNOWN:

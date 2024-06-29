@@ -20,14 +20,15 @@ import org.kde.plasma.core as PlasmaCore
 import org.kde.plasma.extras
 import org.kde.plasma.plasmoid
 import org.kde.plasma.components as PlasmaComponents
+import org.kde.kirigami as Kirigami
 
 import nl.netsoj.minecraftserverping
 
 Item {
 	id: fullRoot
 	clip: true
-	implicitHeight: theme.mSize(theme.defaultFont).height * 4 + units.smallSpacing * 2
-	implicitWidth: + theme.mSize(theme.defaultFont).width * 30 + theme.mSize(theme.defaultFont).height * 3 + 3 * units.smallSpacing
+	// implicitHeight: theme.mSize(Kirigami.Theme.defaultFont).height * 4 + Kirigami.Units.smallSpacing * 2
+	// implicitWidth: + theme.mSize(Kirigami.Theme.defaultFont).width * 30 + theme.mSize(Kirigami.Theme.defaultFont).height * 3 + 3 * Kirigami.Units.smallSpacing
 	property string name
 	property string address
 	property int port
@@ -42,10 +43,10 @@ Item {
 	Image {
 		id: serverImage
 		anchors.left: parent.left
-		anchors.leftMargin: units.smallSpacing
+		anchors.leftMargin: Kirigami.Units.smallSpacing
 		anchors.top: parent.top
-		anchors.topMargin: units.smallSpacing
-		anchors.bottomMargin: units.smallSpacing
+		anchors.topMargin: Kirigami.Units.smallSpacing
+		anchors.bottomMargin: Kirigami.Units.smallSpacing
 		anchors.bottom: parent.bottom
 		width: height
 		fillMode: Image.PreserveAspectFit
@@ -54,10 +55,10 @@ Item {
 	Heading {
 		id: serverName
 		anchors.left: serverImage.right
-		anchors.leftMargin: units.largeSpacing
+		anchors.leftMargin: Kirigami.Units.largeSpacing
 		anchors.top: parent.top
 		anchors.right: serverPlayers.left
-		anchors.rightMargin: units.largeSpacing
+		anchors.rightMargin: Kirigami.Units.largeSpacing
 		text: name
 		elide: Text.ElideRight
 	}
@@ -65,7 +66,7 @@ Item {
 	PlasmaComponents.Label {
 		id: serverPlayers
 		anchors.right: parent.right
-		anchors.rightMargin: units.smallSpacing
+		anchors.rightMargin: Kirigami.Units.smallSpacing
 		anchors.baseline: serverName.baseline
 		text: qsTr("??/??", "current and maximum amount of players unknown")
 		Binding on text {
@@ -90,7 +91,7 @@ Item {
 		id: serverMotd
 		anchors.top: serverName.bottom
 		anchors.left: serverImage.right
-		anchors.leftMargin: units.largeSpacing
+		anchors.leftMargin: Kirigami.Units.largeSpacing
 		anchors.right: parent.right
 		
 		motd: fullRoot.motd

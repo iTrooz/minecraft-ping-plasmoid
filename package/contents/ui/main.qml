@@ -28,6 +28,7 @@ PlasmoidItem {
 	id: plasmoidRoot
 	// Poor people of example.org won't be able to monitor their minecraft server :/
 	property bool configurationRequired: plasmoid.configuration.address == "" || plasmoid.configuration.address == "example.org" || plasmoid.configuration.port == null
+	property string configurationRequiredReason
 	/**
 	 * This object handles the pinging, and is part of th
 	 */
@@ -59,8 +60,7 @@ PlasmoidItem {
 		interval: 1000
 		onTriggered: server.validateAndRefresh()
 	}
-	Plasmoid.configurationRequired: plasmoidRoot.configurationRequired
-	Plasmoid.configurationRequiredReason: qsTr("Please set an address and port for the Minecraft server to monitor")
+	configurationRequiredReason: qsTr("Please set an address and port for the Minecraft server to monitor")
 	
 	Timer {
 		interval: plasmoid.configuration.refreshInterval * 1000
@@ -73,10 +73,10 @@ PlasmoidItem {
 		}
 	}
 	
-	Plasmoid.switchHeight: theme.mSize(theme.defaultFont).height * 4
-	Plasmoid.switchWidth: theme.mSize(theme.defaultFont).width * 30
+	// switchHeight: theme.mSize(theme.defaultFont).height * 4
+	// switchWidth: theme.mSize(theme.defaultFont).width * 30
 	
-    Plasmoid.fullRepresentation: MinecraftServerFullDelegate {
+    fullRepresentation: MinecraftServerFullDelegate {
 		name: server.name
 		address: server.address
 		port: server.port
@@ -93,7 +93,7 @@ PlasmoidItem {
 		Layout.minimumHeight: implicitHeight*/
 	}
 	
-	Plasmoid.compactRepresentation: MinecraftServerIconDelegate {
+	compactRepresentation: MinecraftServerIconDelegate {
 		icon: server.icon
 		currentPlayers: server.currentPlayers
 		motd: server.motd
@@ -102,13 +102,13 @@ PlasmoidItem {
 		opacity: plasmoidRoot.configurationRequired ? 0.5 : 1
 	}
 	
-   Plasmoid.preferredRepresentation: Plasmoid.fullRepresentation
-   Plasmoid.toolTipMainText: qsTr("Minecraft Server Status")
-   Plasmoid.toolTipSubText: server.playerNamesSample.length > 0
+   preferredRepresentation: fullRepresentation
+   toolTipMainText: qsTr("Minecraft Server Status")
+   toolTipSubText: server.playerNamesSample.length > 0
 		          ? server.playerNamesSample.join("\n")
 		          : qsTr("No players online");
 
 	Component.onCompleted: {
-		plasmoid.setAction("refresh", qsTr("Refresh"), "view-refresh")
+		// plasmoid.setAction("refresh", qsTr("Refresh"), "view-refresh")
 	}
 }
