@@ -14,10 +14,10 @@
  * You should have received a copy of the Lesser GNU General Public License
  * along with MinecraftServerPing. If not, see <https://www.gnu.org/licenses/>.
  */
-import QtQuick 2.12
-import QtQuick.Controls 2.12
-import org.kde.kirigami 2.5 as Kirigami
-import org.kde.plasma.core 2.0 as PlasmaCore
+import QtQuick
+import QtQuick.Controls
+import org.kde.kirigami as Kirigami
+import org.kde.plasma.core as PlasmaCore
 
 Item {
 	id: page

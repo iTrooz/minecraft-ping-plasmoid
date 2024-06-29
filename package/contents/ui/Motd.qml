@@ -14,10 +14,10 @@
  * You should have received a copy of the Lesser GNU General Public License
  * along with MinecraftServerPing. If not, see <https://www.gnu.org/licenses/>.
  */
-import QtQuick 2.0
-import org.kde.plasma.components 2.0 as PlasmaComponents
+import QtQuick
+import org.kde.plasma.components as PlasmaComponents
 
-import nl.netsoj.minecraftserverping 1.0
+import nl.netsoj.minecraftserverping
 
 PlasmaComponents.Label {
 	property int serverState

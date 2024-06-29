@@ -14,14 +14,14 @@
  * You should have received a copy of the Lesser GNU General Public License
  * along with MinecraftServerPing. If not, see <https://www.gnu.org/licenses/>.
  */
-import QtQuick 2.6
+import QtQuick
 
-import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.extras 2.0
-import org.kde.plasma.plasmoid 2.0
-import org.kde.plasma.components 2.0 as PlasmaComponents
+import org.kde.plasma.core as PlasmaCore
+import org.kde.plasma.extras
+import org.kde.plasma.plasmoid
+import org.kde.plasma.components as PlasmaComponents
 
-import nl.netsoj.minecraftserverping 1.0
+import nl.netsoj.minecraftserverping
 
 Item {
 	id: iconRoot

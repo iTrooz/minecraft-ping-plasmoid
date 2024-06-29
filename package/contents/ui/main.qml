@@ -15,14 +15,14 @@
  * along with MinecraftServerPing. If not, see <https://www.gnu.org/licenses/>.
  */
 
-import QtQuick 2.1
-import QtQuick.Layouts 1.1
-import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.extras 2.0
-import org.kde.plasma.plasmoid 2.0
-import org.kde.plasma.components 2.0 as PlasmaComponents
+import QtQuick
+import QtQuick.Layouts
+import org.kde.plasma.core as PlasmaCore
+import org.kde.plasma.extras
+import org.kde.plasma.plasmoid
+import org.kde.plasma.components as PlasmaComponents
 
-import nl.netsoj.minecraftserverping 1.0 as MSP
+import nl.netsoj.minecraftserverping as MSP
 
 Item {
 	id: plasmoidRoot
