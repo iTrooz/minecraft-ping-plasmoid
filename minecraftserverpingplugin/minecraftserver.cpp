@@ -43,7 +43,7 @@ void MinecraftServer::setAddress(QString newAddress) {
 		this->addressChangedSincePreviousPing = true;
 	}
 	this->m_address = newAddress;
-	emit addressChanged(newAddress);
+	Q_EMIT addressChanged(newAddress);
 	if (this->m_port != 0 && !this->m_address.isEmpty() && this->m_autoPing) {
 		this->refresh();
 	} else {
@@ -56,7 +56,7 @@ void MinecraftServer::setPort(int newPort)  {
 		this->addressChangedSincePreviousPing = true;
 	}
 	this->m_port = newPort; 
-	emit portChanged(newPort);
+	Q_EMIT portChanged(newPort);
 	if (this->m_port != 0 && !this->m_address.isEmpty() && this->m_autoPing) {
 		this->refresh();
 	} else {
@@ -66,20 +66,20 @@ void MinecraftServer::setPort(int newPort)  {
 
 void MinecraftServer::setServerState(MinecraftServer::ServerState state) {
 	this->m_serverState = state;
-	emit serverStateChanged(state);
+	Q_EMIT serverStateChanged(state);
 }
 
 void MinecraftServer::setError(QString error) {
 	this->resetInternalState();
 	setServerState(ServerState::ERROR);
 	this->m_error = error;
-	emit errorChanged(error);
+	Q_EMIT errorChanged(error);
 }
 
 void MinecraftServer::setMotd(QString motd) {
 	QString parsedMotd = formattingCodeToHTML(motd);
 	this->m_motd = parsedMotd;
-	emit motdChanged(parsedMotd);
+	Q_EMIT motdChanged(parsedMotd);
 }
 
 void MinecraftServer::socketError(QAbstractSocket::SocketError error) {
@@ -200,15 +200,15 @@ void MinecraftServer::refresh() {
 		qDebug() << "Address changed since previous ping";
 		this->addressChangedSincePreviousPing = false;
 		this->m_motd = "";
-		emit motdChanged("");
+		Q_EMIT motdChanged("");
 		this->m_currentPlayers = -1;
-		emit currentPlayersChanged(-1);
+		Q_EMIT currentPlayersChanged(-1);
 		this->m_maxPlayers = -1;
-		emit currentPlayersChanged(-1);
+		Q_EMIT currentPlayersChanged(-1);
 		this->m_icon = "";
-		emit iconChanged();
+		Q_EMIT iconChanged();
 		this->m_playerNamesSample.clear();
-		emit playerNamesSampleChanged();
+		Q_EMIT playerNamesSampleChanged();
 	}
 	
 	this->setServerState(ServerState::PINGING);
@@ -242,20 +242,20 @@ void MinecraftServer::parseResponseJSON(QByteArray &response) {
 	}
 	if (root.contains("favicon") && root["favicon"].isString()) {
 		this->m_icon = root["favicon"].toString();
-		emit this->iconChanged();
+		Q_EMIT this->iconChanged();
 	} else {
 		this->m_icon = nullptr;
-		emit this->iconChanged();
+		Q_EMIT this->iconChanged();
 	}
 	if (root.contains("players") && root["players"].isObject()) {
 		QJsonObject players = root["players"].toObject();
 		if (players.contains("online") && players["online"].isDouble()) {
 			this->m_currentPlayers = static_cast<int>(players["online"].toDouble());
-			emit this->currentPlayersChanged(this->m_currentPlayers);
+			Q_EMIT this->currentPlayersChanged(this->m_currentPlayers);
 		}
 		if (players.contains("max") && players["max"].isDouble()) {
 			this->m_maxPlayers = static_cast<int>(players["max"].toDouble());
-			emit this->maxPlayersChanged(this->m_maxPlayers);
+			Q_EMIT this->maxPlayersChanged(this->m_maxPlayers);
 		}
 		if (players.contains("sample") && players["sample"].isArray()) {
 			QJsonArray playerSample = players["sample"].toArray();
