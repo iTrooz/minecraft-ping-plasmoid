@@ -26,6 +26,9 @@ find_package(Qt6 CONFIG REQUIRED COMPONENTS
 # plasmoid
 plasma_install_package(package nl.netsoj.minecraftserverping)
 
+remove_definitions(-DQT_NO_CAST_FROM_ASCII)
+remove_definitions(-DQT_NO_CAST_TO_ASCII)
+
 # qml extension plugin
 add_subdirectory(minecraftserverpingplugin)
 
