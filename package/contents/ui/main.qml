@@ -24,7 +24,7 @@ import org.kde.plasma.components as PlasmaComponents
 
 import nl.netsoj.minecraftserverping as MSP
 
-Item {
+PlasmoidItem {
 	id: plasmoidRoot
 	// Poor people of example.org won't be able to monitor their minecraft server :/
 	property bool configurationRequired: plasmoid.configuration.address == "" || plasmoid.configuration.address == "example.org" || plasmoid.configuration.port == null
