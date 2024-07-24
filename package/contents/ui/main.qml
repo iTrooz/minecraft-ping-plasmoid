@@ -106,7 +106,7 @@ PlasmoidItem {
    toolTipMainText: qsTr("Minecraft Server Status")
    toolTipSubText: server.playerNamesSample.length > 0
 		          ? server.playerNamesSample.join("\n")
-		          : qsTr("No players online");
+		          : qsTr("No players onlineA");
 
 	Component.onCompleted: {
 		// plasmoid.setAction("refresh", qsTr("Refresh"), "view-refresh")

@@ -84,8 +84,11 @@ Item {
 		ToolTip.visible: serverPlayersHover.containsMouse
 		ToolTip.text: fullRoot.players.length > 0
 		              ? fullRoot.players.join("\n")
-					  : qsTr("No players online");
+					  : qsTr("No players onlineB");
 	}
+
+	ToolTip.visible: true
+	ToolTip.text: "TESTTTT"
 	
 	Motd {
 		id: serverMotd
