@@ -1,3 +1,8 @@
+# Fork notice
+This is a fork by iTrooz porting this for KDE 6
+
+Note: refresh is buggy
+
 # Minecraft Server Ping Plasmoid
 
 An Plasmoid to show the status of a Minecraft server.
